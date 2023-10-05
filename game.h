@@ -15,8 +15,8 @@ private:
     void processEvents();
     void render();
 
-    sf::RenderWindow _window;
-    sf::CircleShape _player;
+    sf::RenderWindow window;
+    sf::CircleShape  player;
 
 };
 
