@@ -1,20 +1,31 @@
 #include "game.h"
 
-Game::Game() : _window(sf::VideoMode(1920, 1080), "test"), _player(150) {
-    player.setFillColor(sf::Color::Blue);
+Game::Game() : window(sf::VideoMode(1920, 1080), "test"), player() {
+    //player.setFillColor(sf::Color::Blue);
     player.setPosition(10, 20);
 }
 
-void Game::run() {
+void Game::run(int minimum_frame_per_seconds) {
+    sf::Clock clock;
+    sf::Time time_since_last_update;
+    sf::Time time_per_frame = sf::seconds(1.f / minimum_frame_per_seconds);
+
     while (window.isOpen()) {
         processEvents();
-        update();
+
+        time_since_last_update = clock.restart();
+
+        while (time_since_last_update > time_per_frame) {
+            time_since_last_update  -= time_per_frame;
+            update(time_per_frame);
+        }
+        update(time_since_last_update);
         render();
     }
 }
 
-void Game::update() {
-
+void Game::update(sf::Time delta_time) {
+    player.update(delta_time);
 }
 
 void Game::processEvents() {
@@ -31,11 +42,13 @@ void Game::processEvents() {
             exit(0);
         }
     }
+
+    player.processEvents();
 }
 
 void Game::render() {
     window.clear();
-    window.draw(_player);
+    window.draw(player);
     window.display();
 }
 

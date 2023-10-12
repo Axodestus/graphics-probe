@@ -3,20 +3,22 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "player.h"
+
 class Game {
 public:
     Game operator=(const Game&) = delete;
     Game(const Game&) = delete;
     Game();
-    void run();
+    void run(int minimum_frame_per_seconds);
 
 private:
-    void update();
+    void update(sf::Time delta_time);
     void processEvents();
     void render();
 
     sf::RenderWindow window;
-    sf::CircleShape  player;
+    Player player;
 
 };
 

@@ -13,6 +13,8 @@ add_executable(
         main.cc
         game.cc
         game.h
+        player.cc
+        player.h
 )
 
 target_link_libraries(
