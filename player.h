@@ -1,6 +1,8 @@
 #ifndef MODELLING__PLAYER_H
 #define MODELLING__PLAYER_H
 
+#include <cmath>
+
 #include <SFML/Graphics.hpp>
 
 class Player : public sf::Drawable {
@@ -9,6 +11,7 @@ public:
     Player& operator=(const Player&) = delete;
     Player();
 
+    // FIXME: Very strange and unsafe solution...
     template<typename ...Args>
     void setPosition(Args&& ...args) {
         shape.setPosition(std::forward<Args>(args) ...);

@@ -1,17 +1,15 @@
 #include "player.h"
-#include <cmath>
 
 Player::Player() : shape(sf::Vector2f(100, 100)), rotation(0), isMoving(false) {
     shape.setFillColor(sf::Color::Yellow);
     shape.setOrigin(16, 16);
-//    shape.setPosition(1000.f, 1000.f);
 }
 
 void Player::draw(sf::RenderTarget &target, sf::RenderStates states) const {
     target.draw(shape, states);
 }
 
-// TODO: figure out strange math
+// TODO: i need the figure out this strange math...
 void Player::update(const sf::Time delta_time) {
     float seconds = delta_time.asSeconds();
 
@@ -29,7 +27,10 @@ void Player::update(const sf::Time delta_time) {
 }
 
 void Player::processEvents() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)) {
-        rotation++;
-    }
+    isMoving = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+
+    rotation = 0;
+    rotation -= sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+    rotation += sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+
 }

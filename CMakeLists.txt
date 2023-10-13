@@ -11,6 +11,11 @@ if (WIN32)
     include_directories("C:\\party\\SFML\\include")
 endif ()
 
+if (LINUX)
+    find_package(CURL REQUIRED)
+    set(LINK_CURL, "-lcurl")
+endif ()
+
 find_package(SFML 2 REQUIRED COMPONENTS graphics audio network system)
 
 add_executable(
@@ -28,5 +33,6 @@ target_link_libraries(
         sfml-audio
         sfml-network
         sfml-system
+        ${LINK_CURL}
 )
 message("Closing cmake...")
