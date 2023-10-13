@@ -4,7 +4,7 @@
 Player::Player() : shape(sf::Vector2f(100, 100)), rotation(0), isMoving(false) {
     shape.setFillColor(sf::Color::Yellow);
     shape.setOrigin(16, 16);
-    shape.setPosition(1000.f, 1000.f);
+//    shape.setPosition(1000.f, 1000.f);
 }
 
 void Player::draw(sf::RenderTarget &target, sf::RenderStates states) const {

@@ -2,7 +2,7 @@
 
 Game::Game() : window(sf::VideoMode(1920, 1080), "test"), player() {
     //player.setFillColor(sf::Color::Blue);
-    player.setPosition(10, 20);
+    player.setPosition(100, 100);
 }
 
 void Game::run(int minimum_frame_per_seconds) {

@@ -5,8 +5,13 @@ project(modelling)
 
 set(CMAKE_CXX_STANDARD 20)
 
+if (WIN32)
+    set(CMAKE_MODULE_PATH "C:\\party\\SFML\\lib")
+    set(SFML_DIR "C:\\party\\SFML\\lib\\cmake\\SFML")
+    include_directories("C:\\party\\SFML\\include")
+endif ()
+
 find_package(SFML 2 REQUIRED COMPONENTS graphics audio network system)
-find_package(CURL REQUIRED)
 
 add_executable(
         modelling
@@ -23,6 +28,5 @@ target_link_libraries(
         sfml-audio
         sfml-network
         sfml-system
-        -lcurl
 )
 message("Closing cmake...")
