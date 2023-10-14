@@ -25,7 +25,7 @@ add_executable(
         game.h
         player.cc
         player.h
-)
+        action.cc action.h)
 
 target_link_libraries(
         modelling

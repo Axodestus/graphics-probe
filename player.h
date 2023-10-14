@@ -17,7 +17,7 @@ public:
         shape.setPosition(std::forward<Args>(args) ...);
     }
 
-    void update(const sf::Time delta_time);
+    void update(sf::Time delta_time);
     void processEvents();
 
     bool isMoving;

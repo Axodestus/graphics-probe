@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
         game.run(1);
 
     } catch (...) {
-        std::cerr << "Something wrong. Stack is over!!!" << std::endl;
+        std::cerr << "Something wrong. Stack is over!" << std::endl;
         std::terminate();
     }
 
