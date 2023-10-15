@@ -1,9 +1,9 @@
 #include "game.h"
 
-Game::Game() : window(sf::VideoMode(1920, 1080), "test"), player() {
-    //player.setFillColor(sf::Color::Blue);
+Game::Game() : window(sf::VideoMode(1920, 1080), "test") {
     player.setPosition(100, 100);
 }
+
 
 void Game::run(int minimum_frame_per_seconds) {
     sf::Clock clock;
@@ -24,9 +24,11 @@ void Game::run(int minimum_frame_per_seconds) {
     }
 }
 
+
 void Game::update(sf::Time delta_time) {
     player.update(delta_time);
 }
+
 
 void Game::processEvents() {
     sf::Event event {};
@@ -45,6 +47,7 @@ void Game::processEvents() {
 
     player.processEvents();
 }
+
 
 void Game::render() {
     window.clear();
