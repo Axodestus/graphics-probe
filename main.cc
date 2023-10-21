@@ -1,6 +1,6 @@
 #include <iostream>
 
-#ifdef __linux__
+#ifdef _POSIX
 #include <sys/utsname.h>
 #include <curl/curl.h>
 #endif
@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[]) {
 
-#ifdef __linux__
+#ifdef _POSIX
     utsname info;
     uname(&info);
 
